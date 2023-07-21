@@ -88,7 +88,14 @@
     framePacing = useFramePacing;
     
     [self reinitializeDisplayLayer];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+      selector:@selector(reinitializeDisplayLayer)
+        name:@"ScreenConnected"
+        object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+    selector:@selector(reinitializeDisplayLayer)
+        name:@"ScreenDisconnected"
+      object:nil];
     return self;
 }
 
