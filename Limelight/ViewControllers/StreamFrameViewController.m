@@ -136,7 +136,7 @@
     _controllerSupport = [[ControllerSupport alloc] initWithConfig:self.streamConfig delegate:self];
     _inactivityTimer = nil;
     _renderView = (StreamView*)[[UIView alloc] initWithFrame:self.view.frame];
-    _streamView = (StreamView*)self.view;
+    _streamView = [[StreamView alloc] initWithFrame:self.view.frame];
     _renderView.bounds = _streamView.bounds;
     [_streamView setupStreamView:_controllerSupport interactionDelegate:self config:self.streamConfig];
     
@@ -458,8 +458,6 @@
                                                                      userInfo:nil
                                                                       repeats:YES];
         }
-
-        self.spinner.hidden = YES;
     });
 }
 
